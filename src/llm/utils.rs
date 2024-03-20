@@ -22,12 +22,6 @@ pub fn get_config_path() -> PathBuf {
     let mut config_path = PathBuf::new();
     match std::env::consts::OS {
         "linux" | "macos" => config_path.push("/etc/llm_cli_config.json"),
-        "windows" => {
-            config_path.push("C:");
-            config_path.push("ProgramData");
-            config_path.push("llm-cli");
-            config_path.push("llm_cli_config.json")
-        }
         _ => {
             panic!("--- Unsupported operating system ---")
         }

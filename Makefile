@@ -13,21 +13,25 @@ BUILD_DIR = target/release
 .PHONY: build install symlink uninstall
 
 install: build symlink
-	cp $(BUILD_DIR)/$(APP_NAME) $(BIN_DIR)/$(APP_NAME)
-	cp $(LOCAL_CONFIG_FILE) $(CONFIG_FILE)
+	@cp $(BUILD_DIR)/$(APP_NAME) $(BIN_DIR)/$(APP_NAME)
+	@cp $(LOCAL_CONFIG_FILE) $(CONFIG_FILE)
+	@echo "Installed llm-cli successfully."
 
 build:
 	cargo build --release
+	@echo "Build successful."
 
 symlink:
-	ln -sf $(BIN_DIR)/llm-cli $(BIN_DIR)/gpt
-	ln -sf $(BIN_DIR)/llm-cli $(BIN_DIR)/claude
-	ln -sf $(BIN_DIR)/llm-cli $(BIN_DIR)/mistral
+	@ln -sf $(BIN_DIR)/llm-cli $(BIN_DIR)/gpt
+	@ln -sf $(BIN_DIR)/llm-cli $(BIN_DIR)/claude
+	@ln -sf $(BIN_DIR)/llm-cli $(BIN_DIR)/mistral
+	@echo "Symlink creation successful."
 	
 
 uninstall:
-	rm -f $(BIN_DIR)/$(APP_NAME)
-	rm -f $(CONFIG_FILE)
-	rm -f $(BIN_DIR)/gpt
-	rm -f $(BIN_DIR)/claude
-	rm -f $(BIN_DIR)/mistral
+	@rm -f $(BIN_DIR)/$(APP_NAME)
+	@rm -f $(CONFIG_FILE)
+	@rm -f $(BIN_DIR)/gpt
+	@rm -f $(BIN_DIR)/claude
+	@rm -f $(BIN_DIR)/mistral
+	@echo "Uninstalled llm-cli successfully."
