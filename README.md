@@ -34,7 +34,7 @@ sudo make uninstall
 In your terminal, you can use the `llm-cli` command as following:
 
 ```bash
-<model-name> <paramaters> & <your-prompt>
+<model-name> <paramaters> $ <your-prompt>
 
 # example: claude -temp=0.5 $ give me 20 places to visit in Tokyo
 ```
